@@ -14,28 +14,28 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">TITLE<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="title">
+                                        <input type="text" class="form-control" name="title" required>
                                         @error('title')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">VIDEO URL<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="video_url">
+                                        <input type="text" class="form-control" name="video_url" required>
                                         @error('video_url')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">UPLOAD THUMBNAIL<span class="text-danger">*</span></label>
-                                        <input type="file" class="form-control" name="thumbnail">
+                                        <input type="file" class="form-control" name="thumbnail" required>
                                         @error('thumbnail')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">ADD WHRO IMPACT</button>
+                            <button type="submit" class="btn btn-primary">SAVE</button>
                         </form>
                     </div>
                 </div>

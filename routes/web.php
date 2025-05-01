@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthenticationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomepageBannerController;
@@ -38,6 +39,9 @@ Route::middleware([
         return view('backend.admin.index');
     })->name('dashboard');
 
+    Route::get('/profile', [AuthenticationController::class, 'getProfile'])->name('profile');
+    Route::post('/update-profile', [AuthenticationController::class, 'updateProfile'])->name('update.profile');
+
     Route::prefix('blog')->group(function(){
         Route::get('/',[BlogController::class, 'createBlog'])->name('create.blog');
         Route::post('store-blog',[BlogController::class, 'storeBlog'])->name('save.blog');
@@ -60,18 +64,25 @@ Route::middleware([
         Route::get('manage-stay-healthy-point',[StayHealthyController::class, 'manageStayHealthyPoint'])->name('manage.stay.healthy.point');
         Route::get('edit-stay-healthy-point/{id}',[StayHealthyController::class, 'editStayHealthyPoint'])->name('edit.stay.healthy.point');
         Route::post('update-stay-healthy-point/{id}',[StayHealthyController::class, 'updateStayHealthyPoint'])->name('update.stay.healthy.point');
+        Route::delete('delete-stay-healthy-point/{id}',[StayHealthyController::class, 'deleteStayHealthyPoint'])->name('delete.stay.healthy.point');
     });
 
     Route::prefix('our-support')->group(function(){
         Route::get('manage-support',[SupportController::class, 'manageSupport'])->name('manage.support');
         Route::get('edit-support/{id}',[SupportController::class, 'editSupport'])->name('edit.support');
+        Route::get('add-support',[SupportController::class, 'addSupport'])->name('add.support');
+        Route::post('store-support',[SupportController::class, 'storeSupport'])->name('store.support');
         Route::post('update-support/{id}',[SupportController::class, 'updateSupport'])->name('update.support');
+        Route::delete('delete-support/{id}',[SupportController::class, 'deleteSupport'])->name('delete.support');
     });
 
     Route::prefix('get-involved')->group(function(){
         Route::get('manage-get-involved',[GetInvolvedController::class, 'manageGetInvolved'])->name('manage.get.involved');
+        Route::get('add-involved',[GetInvolvedController::class, 'addInvolved'])->name('add.involved');
+        Route::post('store-involved',[GetInvolvedController::class, 'storeInvolved'])->name('store.involved');
         Route::get('edit-get-involved/{id}',[GetInvolvedController::class, 'editGetInvolved'])->name('edit.get.involved');
         Route::post('update-get-involved/{id}',[GetInvolvedController::class, 'updateGetInvolved'])->name('update.get.involved');
+        Route::delete('delete-get-involved/{id}',[GetInvolvedController::class, 'deleteInvolved'])->name('delete.get.involved');
     });
 
     Route::prefix('about-me')->group(function(){
@@ -86,6 +97,7 @@ Route::middleware([
         Route::get('manage-whro-impact',[WHROImpactController::class, 'manageWHROImpact'])->name('manage.whro.impact');
         Route::get('edit-whro-impact/{id}',[WHROImpactController::class, 'editWHROImpact'])->name('edit.whro.impact');
         Route::post('update-whro-impact/{id}',[WHROImpactController::class, 'updateWHROImpact'])->name('update.whro.impact');
+        Route::delete('delete-whro-impact/{id}',[WHROImpactController::class, 'deleteWHROImpact'])->name('delete.whro.impact');
     });
 
     Route::prefix('our-story')->group(function(){
@@ -102,8 +114,9 @@ Route::middleware([
         Route::get('create-why-choose-us',[WhyChooseUsController::class, 'createWhyChooseUs'])->name('create.why.choose.us');
         Route::post('store-why-choose-us',[WhyChooseUsController::class, 'storeWhyChooseUs'])->name('store.why.choose.us');
         Route::get('manage-why-choose-us',[WhyChooseUsController::class, 'manageWhyChooseUs'])->name('manage.why.choose.us');
-        Route::get('edit-why-choose-us',[WhyChooseUsController::class, 'editWhyChooseUs'])->name('edit.why.choose.us');
-        Route::post('update-why-choose-us',[WhyChooseUsController::class, 'updateWhyChooseUs'])->name('update.why.choose.us');
+        Route::get('edit-why-choose-us/{id}',[WhyChooseUsController::class, 'editWhyChooseUs'])->name('edit.why.choose.us');
+        Route::post('update-why-choose-us/{id}',[WhyChooseUsController::class, 'updateWhyChooseUs'])->name('update.why.choose.us');
+        Route::delete('delete-why-choose-us/{id}',[WhyChooseUsController::class, 'deleteWhyChooseUs'])->name('delete.why.choose.us');
     });
 
     Route::prefix('meet-whro-patients')->group(function(){
@@ -112,6 +125,10 @@ Route::middleware([
         Route::get('manage-meet-whro-patients',[MeetWhroPatientsController::class, 'manageMeetWhroPatients'])->name('manage.meet.whro.patients');
         Route::get('edit-meet-whro-patients/{id}',[MeetWhroPatientsController::class, 'editMeetWhroPatients'])->name('edit.meet.whro.patients');
         Route::post('update-meet-whro-patients/{id}',[MeetWhroPatientsController::class, 'updateMeetWhroPatients'])->name('update.meet.whro.patients');
+        Route::delete('delete-meet-whro-patients/{id}',[MeetWhroPatientsController::class, 'deleteMeetWhroPatients'])->name('delete.meet.whro.patients');
     });
+
+    // sign out
+    Route::get('sign-out', [AuthenticationController::class, 'signOut'])->name('sign.out');
 
 });

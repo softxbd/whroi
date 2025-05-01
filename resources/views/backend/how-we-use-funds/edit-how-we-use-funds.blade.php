@@ -16,15 +16,15 @@
                                     <div class="mb-3">
                                         <label class="form-label">TITLE<span class="text-danger">*</span></label>
                                         <input type="text" value="{{ $funds->title }}" class="form-control"
-                                               name="title">
+                                               name="title" required>
                                         @error('title')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">CAPTION<span class="text-danger">*</span></label>
-                                        <input type="text" value="{{ $funds->caption }}" class="form-control"
-                                               name="caption">
+                                        <textarea class="form-control" name="caption" rows="4" required>{{ $funds->caption }}</textarea>
+
                                         @error('caption')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -32,7 +32,7 @@
                                     <div class="mb-3">
                                         <label class="form-label">Programs<span class="text-danger">*</span></label>
                                         <input type="text" value="{{ $funds->programs }}" class="form-control"
-                                               name="programs">
+                                               name="programs" required>
                                         @error('programs')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -40,7 +40,7 @@
                                     <div class="mb-3">
                                         <label class="form-label"> Programs Value <span class="text-danger">*</span></label>
                                         <input type="text" value="{{ $funds->programs_value }}" class="form-control"
-                                               name="programs_value">
+                                               name="programs_value" required>
                                         @error('programs_value')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -48,7 +48,7 @@
                                     <div class="mb-3">
                                         <label class="form-label">Fundraising<span class="text-danger">*</span></label>
                                         <input type="text" value="{{ $funds->fundraising }}" class="form-control"
-                                               name="fundraising">
+                                               name="fundraising" required>
                                         @error('fundraising')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -56,7 +56,7 @@
                                     <div class="mb-3">
                                         <label class="form-label">Fundraising Value<span class="text-danger">*</span></label>
                                         <input type="text" value="{{ $funds->fundraising_value }}" class="form-control"
-                                               name="fundraising_value">
+                                               name="fundraising_value" required>
                                         @error('fundraising_value')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -64,7 +64,7 @@
                                     <div class="mb-3">
                                         <label class="form-label"> Management <span class="text-danger">*</span></label>
                                         <input type="text" value="{{ $funds->management }}" class="form-control"
-                                               name="management">
+                                               name="management" required>
                                         @error('management')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -72,7 +72,7 @@
                                     <div class="mb-3">
                                         <label class="form-label">Management Value<span class="text-danger">*</span></label>
                                         <input type="text" value="{{ $funds->management_value }}" class="form-control"
-                                               name="management_value">
+                                               name="management_value" required>
                                         @error('management_value')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror

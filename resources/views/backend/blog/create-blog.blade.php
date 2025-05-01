@@ -14,7 +14,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">CHOOSE BLOG CATEGORY<span class="text-danger">*</span></label>
-                                        <select name="brand_id" class="form-control select2">
+                                        <select name="brand_id" class="form-control select2" required>
                                             <option value="">SELECT BLOG CATEGORY</option>
                                             <option value="1">CATEGORY-1</option>
                                             <option value="1">CATEGORY-2</option>
@@ -26,14 +26,14 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">BLOG TITLE<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="bank_name">
+                                        <input type="text" class="form-control" name="bank_name" required>
                                         @error('blog_title')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">SUBMIT</button>
+                            <button type="submit" class="btn btn-primary">SAVE</button>
                         </form>
                     </div>
                 </div>

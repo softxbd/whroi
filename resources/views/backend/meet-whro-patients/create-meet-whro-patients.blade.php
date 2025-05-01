@@ -14,7 +14,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">TITLE<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="title">
+                                        <input type="text" class="form-control" name="title" required>
                                         @error('title')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -22,7 +22,7 @@
 
                                     <div class="mb-3">
                                         <label class="form-label">goal<span class="text-danger">*</span></label>
-                                        <input type="number"  class="form-control" name="goal">
+                                        <input type="number"  class="form-control" name="goal" required>
                                         @error('goal')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -30,14 +30,14 @@
 
                                     <div class="mb-3">
                                         <label class="form-label">transplant type<span class="text-danger">*</span></label>
-                                        <input type="text"  class="form-control" name="transplant_type">
+                                        <input type="text"  class="form-control" name="transplant_type" required>
                                         @error('transplant_type')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">transplant status<span class="text-danger">*</span></label>
-                                        <input type="text"  class="form-control" name="transplant_status">
+                                        <input type="text"  class="form-control" name="transplant_status" required
                                         @error('transplant_status')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -45,7 +45,7 @@
 
                                     <div class="mb-3">
                                         <label class="form-label">fayetteville<span class="text-danger">*</span></label>
-                                        <input type="text"  class="form-control" name="fayetteville">
+                                        <input type="text"  class="form-control" name="fayetteville" required>
                                         @error('fayetteville')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -53,14 +53,14 @@
 
                                   <div class="mb-3">
                                         <label class="form-label">UPLOAD THUMBNAIL<span class="text-danger">*</span></label>
-                                        <input type="file" class="form-control" name="thumbnail">
+                                        <input type="file" class="form-control" name="thumbnail" required>
                                         @error('thumbnail')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary"> CREATE</button>
+                            <button type="submit" class="btn btn-primary">SAVE</button>
                         </form>
                     </div>
                 </div>

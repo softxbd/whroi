@@ -102,4 +102,32 @@ class WHROImpactController extends Controller
         return redirect()->route('edit.whro.impact',$id)->with($notification);
     }
 
+    public function deleteWHROImpact(Request $request, $id)
+    {
+        $whroImpact = WhroImpact::find($id);
+
+        if (!$whroImpact) {
+            return redirect()->route('manage.whro.impact')->with([
+                'message' => 'Whro impact not found',
+                'alert-type' => 'error'
+            ]);
+        }
+
+        // Delete thumbnail file if it exists
+        if ($whroImpact->thumbnail && file_exists(public_path('backend/images/' . $whroImpact->thumbnail))) {
+            unlink(public_path('backend/images/' . $whroImpact->thumbnail));
+        }
+
+        // Delete the database record
+        $whroImpact->delete();
+
+        $notification = [
+            'message' => 'Whro impact deleted successfully',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('manage.whro.impact')->with($notification);
+    }
+
+
 }

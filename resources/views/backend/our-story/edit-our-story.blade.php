@@ -14,21 +14,21 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">TITLE<span class="text-danger">*</span></label>
-                                        <input type="text" value="{{ $story->title }}" class="form-control" name="title">
+                                        <input type="text" value="{{ $story->title }}" class="form-control" name="title" required>
                                         @error('title')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">CAPTION<span class="text-danger">*</span></label>
-                                        <input type="text" value="{{ $story->caption }}" class="form-control" name="caption">
+                                        <input type="text" value="{{ $story->caption }}" class="form-control" name="caption" required>
                                         @error('caption')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">DESCRIPTION<span class="text-danger">*</span></label>
-                                        <textarea type="text" rows="7" class="form-control" name="description">{{ $story->description }}</textarea>
+                                        <textarea type="text" rows="7" class="form-control" name="description" required>{{ $story->description }}</textarea>
                                         @error('caption')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror

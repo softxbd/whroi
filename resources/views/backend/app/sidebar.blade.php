@@ -153,8 +153,8 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div>Add Support Category</div>
+                    <a href="{{route('add.support')}}" class="menu-link">
+                        <div>Add Support</div>
                     </a>
                 </li>
                 <li class="menu-item">
@@ -190,11 +190,6 @@
                 <div>About Me</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div>Add About Me Category</div>
-                    </a>
-                </li>
                 <li class="menu-item">
                     <a href="{{ route('manage.about.me') }}" class="menu-link">
                         <div>Manage About Me</div>

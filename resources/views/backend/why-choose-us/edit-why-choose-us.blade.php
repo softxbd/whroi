@@ -8,30 +8,30 @@
                         <h5 class="card-title mb-0">UPDATE OUR STORY</h5>
                     </div>
                     <div class="card-body pb-2">
-                        <form class="mb-3" action="{{ route('update.our.story') }}" enctype="multipart/form-data" method="post">
+                        <form class="mb-3" action="{{ route('update.why.choose.us',$whyChoose->id) }}" enctype="multipart/form-data" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">TITLE<span class="text-danger">*</span></label>
-                                        <input type="text" value="{{ $story->title }}" class="form-control" name="title">
+                                        <input type="text" value="{{ $whyChoose->title }}" class="form-control" name="title" required>
                                         @error('title')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">CAPTION<span class="text-danger">*</span></label>
-                                        <input type="text" value="{{ $story->caption }}" class="form-control" name="caption">
+                                        <input type="text" value="{{ $whyChoose->caption }}" class="form-control" name="caption" required>
                                         @error('caption')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <img class="img-banner" width="120" height="120" src="{{ asset('backend/images/'.$story->banner) }}" alt="">
+                                        <img class="img-banner" width="120" height="120" src="{{ asset('backend/images/'.$whyChoose->thumbnail) }}" alt="">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">UPLOAD THUMBNAIL<span class="text-danger">*</span></label>
-                                        <input type="file" class="form-control" name="banner">
+                                        <input type="file" class="form-control" name="thumbnail">
                                         @error('thumbnail')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror

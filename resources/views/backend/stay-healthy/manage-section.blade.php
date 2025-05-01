@@ -36,7 +36,13 @@
                                             <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{ route('edit.stay.healthy.point',$section->id) }}"><i class="bx bx-edit-alt me-1"></i>Edit</a>
-                                                    <a class="dropdown-item" href="#"><i class="bx bx-trash me-1"></i>Delete</a>
+                                                    <form action="{{ route('delete.why.choose.us', $section->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="dropdown-item text-danger">
+                                                            <i class="bx bx-trash me-1"></i>Delete
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </td>

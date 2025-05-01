@@ -150,4 +150,31 @@ class StayHealthyController extends Controller
         return redirect()->route('edit.stay.healthy.point',$id)->with($notification);
     }
 
+    public function deleteStayHealthyPoint(Request $request, $id)
+    {
+        $stay = StayHealthyPoint::find($id);
+
+        if (!$stay) {
+            return redirect()->route('manage.stay.healthy.point')->with([
+                'message' => 'Stay health section not found',
+                'alert-type' => 'error'
+            ]);
+        }
+
+        // Delete thumbnail file if it exists
+        if ($stay->thumbnail && file_exists(public_path('backend/images/' . $stay->thumbnail))) {
+            unlink(public_path('backend/images/' . $stay->thumbnail));
+        }
+
+        // Delete the database record
+        $stay->delete();
+
+        $notification = [
+            'message' => 'Stay health section deleted successfully',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('manage.stay.healthy.point')->with($notification);
+    }
+
 }

@@ -61,7 +61,7 @@ class MeetWhroPatientsController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('edit.stay.healthy')->with($notification);
+        return redirect()->route('manage.meet.whro.patients')->with($notification);
     }
 
     public function editMeetWhroPatients($id)
@@ -106,9 +106,41 @@ class MeetWhroPatientsController extends Controller
         }
 
         $data->save();
+        $notification = array(
+            'message' => 'Meet whro patient update successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('edit.meet.whro.patients',$id)->with($notification);
 
-        return "Patient Successfully  Updated";
+    }
 
+
+
+    public function deleteMeetWhroPatients(Request $request, $id)
+    {
+        $meetPatient = MeetWhroPatient::find($id);
+
+        if (!$meetPatient) {
+            return redirect()->route('manage.meet.whro.patients')->with([
+                'message' => 'Why choose us not found',
+                'alert-type' => 'error'
+            ]);
+        }
+
+        // Delete thumbnail file if it exists
+        if ($meetPatient->thumbnail && file_exists(public_path('backend/images/' . $meetPatient->thumbnail))) {
+            unlink(public_path('backend/images/' . $meetPatient->thumbnail));
+        }
+
+        // Delete the database record
+        $meetPatient->delete();
+
+        $notification = [
+            'message' => 'Meet whro point deleted successfully',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('manage.meet.whro.patients')->with($notification);
     }
 
 }
